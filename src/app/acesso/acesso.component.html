@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 d-flex justify-content-end" [@animacao-banner]="bannerState">
+			<app-banner></app-banner>
+		</div>
+
+		<div *ngIf="ehCadastro; else formLogin">
+			<!-- utilizando callback nas animaçoes no inicio e no final - isso nos dá a possibilidade de fazer com que possamos
+			aplicar lógica no nosso componente no inicio e no final de uma animação e não somente aplicar o efeito de animação-->
+			<div class="col-sm-6 d-flex justify-content-start" [@animacao-painel]="painelState" (@animacao-painel.start)="inicioAnimacao()"
+			 (@animacao-painel.done)="fimAnimacao()">
+				<app-cadastro (changePanel)="mudarPainel($event)"></app-cadastro>
+			</div>
+		</div>
+
+		<ng-template #formLogin>
+			<div class="col-sm-6 d-flex justify-content-start" [@animacao-painel]="painelState" (@animacao-painel.start)="inicioAnimacao()"
+			(@animacao-painel.done)="fimAnimacao()">
+				<app-login (changePanel)="mudarPainel($event)"></app-login>
+			</div>
+		</ng-template>
+
+	</div>
+</div>

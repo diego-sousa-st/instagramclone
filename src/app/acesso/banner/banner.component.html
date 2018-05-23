@@ -1,0 +1,6 @@
+<!--<button (click)="toogleEstadoAnimacao()">Teste</button>-->
+<div class="banner-background">
+	<!-- usamos uma notacao parecido com property binding para para conectar a nossa trigger ao componente -->
+	<!-- setamos também o atributo que contem o estado da animação, no caso o estado inicial -->
+	<img *ngFor="let imagem of imagens" [src]="imagem.url" [@banner]="imagem.estado">
+</div>
