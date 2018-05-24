@@ -1,0 +1,19 @@
+<nav class="navbar fixed-top navbar-light bg-white">
+	<div class="container">
+		<div class="logo"></div>
+		<div>
+			<div class="add-post" data-toggle="modal" data-target="#exampleModal"></div>
+			<a href="#" (click)="logout()" style="margin-left: 25px;">Sair</a>
+		</div>
+	</div>
+</nav>
+
+<br />
+<br />
+<br />
+<div class="container">
+	<app-publicacoes #publicacoes></app-publicacoes>
+
+	<!-- modal inclusoes de posts -->
+	<app-incluir-publicacao (atualizarTimeline)='tratarAtualizacaoTimeline()'></app-incluir-publicacao>
+</div>
